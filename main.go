@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"gopkg.in/src-d/go-git.v4"
+	"log"
 )
 
 const (
@@ -11,6 +12,9 @@ const (
 
 func main() {
 	_, repostStatus, _ := getRepoInfo(".")
+	if !repostStatus.IsClean() {
+		log.Fatal("directiory not commited")
+	}
 	fmt.Println("repostStatus is", repostStatus)
 	print("ZAZAZA")
 }
