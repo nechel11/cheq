@@ -10,11 +10,9 @@ const (
 )
 
 func main() {
-	repo, repostStatus, err := getRepoInfo(".")
-	fmt.Println("repo is", repo)
+	_, repostStatus, _ := getRepoInfo(".")
 	fmt.Println("repostStatus is", repostStatus)
-	fmt.Println("err is", err)
-	fmt.Println("hello")
+	print("ZAZAZA")
 }
 
 func getRepoInfo(path string) (repo *git.Repository, repoStatus git.Status, err error) {
