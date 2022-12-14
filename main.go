@@ -11,12 +11,11 @@ const (
 )
 
 func main() {
-	_, repostStatus, _ := getRepoInfo(".")
+	repo, repostStatus, err := getRepoInfo(".")
 	if !repostStatus.IsClean() {
 		log.Fatal("directiory not commited")
 	}
-	fmt.Println("repostStatus is", repostStatus)
-	print("ZAZAZA")
+	fmt.Println(repo, repostStatus, err)
 }
 
 func getRepoInfo(path string) (repo *git.Repository, repoStatus git.Status, err error) {
