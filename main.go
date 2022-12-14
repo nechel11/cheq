@@ -14,6 +14,7 @@ func main() {
 	fmt.Println("repo is", repo)
 	fmt.Println("repostStatus is", repostStatus)
 	fmt.Println("err is", err)
+	fmt.Println("hello")
 }
 
 func getRepoInfo(path string) (repo *git.Repository, repoStatus git.Status, err error) {
