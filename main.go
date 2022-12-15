@@ -6,16 +6,21 @@ import (
 	"log"
 )
 
-const (
-	Test = "%s test"
-)
-
 func main() {
-	repo, repostStatus, err := getRepoInfo(".")
-	if !repostStatus.IsClean() {
-		log.Fatal("directiory not commited")
+	err := IsCommitted()
+	if err != nil {
+		log.Fatal(err)
 	}
-	fmt.Println(repo, repostStatus, err)
+	fmt.Println("NOT FATAL")
+}
+
+func IsCommitted() error {
+	_, repostStatus, err := getRepoInfo(".")
+	fmt.Println(repostStatus.IsClean(), err)
+	if !repostStatus.IsClean() || err != nil {
+		return fmt.Errorf("%s", "b;b")
+	}
+	return nil
 }
 
 func getRepoInfo(path string) (repo *git.Repository, repoStatus git.Status, err error) {
